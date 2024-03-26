@@ -18,7 +18,7 @@
         "beyondcode/laravel-server-timing": "dev-master",
         "chelout/laravel-relationship-events": "^1.4",
         "fruitcake/laravel-cors": "^3.0",
-        "guzzlehttp/guzzle": "^7.0.1",
+        "guzzlehttp/guzzle": "^7.5",
         "guzzlehttp/psr7": "^2.2.1",
         "ipinfo/ipinfolaravel": "dev-master",
         "laravel/framework": "^9.0",
