@@ -128,11 +128,11 @@ class AuthController extends Controller
         $token = auth()->attempt($dataValidated);
         ServerTiming::stop('Auth-Attempt');
 
-        if (! $token) {
+        if (!$token) {
             return response()->json(['error' => 'Bad Request'], 400);
         }
 
-        if (! Auth::user()->is_active) {
+        if (!Auth::user()->is_active) {
             auth()->logout();
 
             return response()->json(['error' => 'User is not active'], 403);
@@ -216,7 +216,9 @@ class AuthController extends Controller
     {
         $params = $this->request->all();
 
-        if ($params["language"] === "fr") {
+        $fr_check = ($params["language"] ?? '') === "fr" || ($params["lang"] ?? '') === "fr"; // leaving the "language" key in case this was an upgrade and some client is still relying on this!! TODO: ensure no client is using potentially old "language" key and clean up!
+
+        if ($fr_check) {
             return response()->json([
                 'language' => "Français"
             ]);
